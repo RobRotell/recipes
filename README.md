@@ -1,1 +1,1 @@
-# recipes1
+Collected recipes for various CLI goodness
