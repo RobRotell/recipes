@@ -13,8 +13,8 @@
 		"build-task:js-compile": 		"uglifyjs src/js/jquery.min.js src/js/plugins.js src/js/main.js --compress --source-map --output dist/js/main.js",
 		
 		"start:build": 					"npm-run-all -p build:*",
-		"start:watcher-js": 			"chokidar 'src/js/*.js' -c 'npm run build-task:*'",
-		"start:watcher-scss": 			"chokidar 'src/scss/**/*.scss' -c 'npm run build-task:*'",
+		"start:watcher-js": 			"chokidar 'src/js/*.js' -c 'npm run build:js'",
+		"start:watcher-scss": 			"chokidar 'src/scss/**/*.scss' -c 'npm run build:scss'",
 		
 		"dev": "npm-run-all -p start:*"
 	},
