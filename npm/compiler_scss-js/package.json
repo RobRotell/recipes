@@ -3,29 +3,26 @@
 	"version": 		"0.0.3",
 	"description": 	"Basic compiler for JS and SCSS",
 	"main": 		"index.js",
-	"scripts": {
-
-		// Invoke overall build
+	"scripts": 
+	{
 		"build:js": 					"npm-run-all -p build-task:js-*",
 		"build:scss": 					"npm-run-all -p build-task:scss-*",
 
-		// Build functions by type
 		"build-task:scss-compile": 		"node-sass-chokidar --source-map true src/scss/ -o dist/css --output-style=compressed",
 		"build-task:scss-autoprefixer": "postcss dist/css/*.css --use autoprefixer -d | exorcist dist/css/main.css.map > dist/css/main.css",
 		"build-task:js-compile": 		"uglifyjs src/js/jquery.min.js src/js/plugins.js src/js/main.js --compress --source-map --output dist/js/main.js",
 		
-		// Init functions
 		"start:build": 					"npm-run-all -p build:*",
 		"start:watcher-js": 			"chokidar 'src/js/*.js' -c 'npm run build-task:*'",
 		"start:watcher-scss": 			"chokidar 'src/scss/**/*.scss' -c 'npm run build-task:*'",
 		
-		// Init command
 		"dev": "npm-run-all -p start:*"
 	},
 	"keywords": 	[],
 	"author": 		"Rob Rotell",
 	"license": 		"ISC",
-	"dependencies":	{
+	"dependencies":	
+	{
 	    "autoprefixer": 		"^7.1.1",
 	    "chokidar-cli": 		"^1.2.0",
 	    "exorcist": 			"^1.0.0",
